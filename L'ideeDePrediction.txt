@@ -1,0 +1,58 @@
+1. Prédire la note de l’avis (de 1 à 5)
+
+La question : ce client va-t-il être content ou mécontent ?
+
+Cible : review_score. On peut la simplifier en deux catégories : mécontent (1-2) ou content (4-5).
+Variables explicatives : le délai de livraison, le retard (date réelle moins date promise), le prix, les frais de port, la catégorie du produit, le nombre de produits dans la commande, la distance entre le client et le vendeur (leurs États).
+Type : classification, car on prédit une catégorie.
+Tableaux à relier : reviews + orders + order_items + products.
+Pourquoi c’est un bon sujet : le lien est fort et facile à expliquer. Un colis en retard donne presque toujours une mauvaise note.
+
+C’est le sujet que je te conseille : il est clair, il donne de bons résultats et il est facile à présenter.
+
+2. Prédire si une livraison sera en retard
+
+La question : le colis arrivera-t-il après la date promise ?
+
+Cible : retard, oui ou non. On la crée en comparant order_delivered_customer_date et order_estimated_delivery_date.
+Variables explicatives : l’État du client et celui du vendeur, le poids et la taille du colis, les frais de port, le mois d’achat (les fêtes provoquent plus de retards).
+Type : classification.
+Difficulté : seulement 8 % des colis sont en retard. On parle alors de classes déséquilibrées : un modèle qui répond toujours « pas de retard » a raison 92 % du temps sans rien apprendre. Il faut donc regarder d’autres mesures que l’exactitude.
+
+
+3. Prédire le délai de livraison (en jours)
+
+La question : combien de jours le client va-t-il attendre ?
+
+Cible : le nombre de jours entre l’achat et la livraison.
+Variables explicatives : les mêmes que pour le retard.
+Type : régression, car on prédit un nombre.
+4. Prévoir les ventes futures (la demande)
+
+La question : combien de commandes y aura-t-il la semaine prochaine ?
+
+Cible : le nombre de commandes, ou le chiffre d’affaires, par jour ou par semaine. On l’obtient en regroupant les commandes par date.
+Variables explicatives : le jour de la semaine, le mois, les ventes des jours précédents, les événements comme le Black Friday.
+Type : série temporelle, c’est-à-dire une suite de valeurs dans le temps.
+Difficulté : il n’y a que 20 mois de données fiables, ce qui est un peu court pour bien voir les effets de saison.
+5. Prédire si un client va racheter
+
+La question : ce client reviendra-t-il commander ?
+
+Cible : oui ou non, en comptant les commandes par customer_unique_id.
+Type : classification.
+Difficulté : 97 % des clients n’achètent qu’une seule fois. C’est très déséquilibré et difficile à prédire. Je te le déconseille.
+Sans prédiction : regrouper les clients
+
+Tu peux aussi faire une segmentation, c’est-à-dire grouper les clients qui se ressemblent (par exemple avec K-means). C’est du ML non supervisé : il n’y a pas de cible, le modèle trouve lui-même des groupes, comme les « gros acheteurs » ou les « petits paniers ».
+
+Résumé
+Sujet	Cible	Type	Difficulté
+Note de l’avis	review_score	Classification	Facile, conseillé
+Retard de livraison	Retard oui ou non	Classification	Moyenne
+Délai de livraison	Nombre de jours	Régression	Moyenne
+Ventes futures	Commandes par jour	Série temporelle	Moyenne
+Client qui rachète	Rachat oui ou non	Classification	Difficile
+Groupes de clients	Aucune	Non supervisé	Moyenne
+
+Dis-moi lequel tu choisis, et je t’explique les étapes pour le construire.

@@ -1,0 +1,47 @@
+artifact_path: file:C:/python-projs/olist/mlruns/2/models/m-bb4d6ad79daa46079bf3ed6152db7f88/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.14.7
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.9.0
+    skops_trusted_types: null
+is_signature_from_type_hint: false
+mlflow_version: 3.17.1
+model_id: m-bb4d6ad79daa46079bf3ed6152db7f88
+model_size_bytes: 14732603
+model_uuid: m-bb4d6ad79daa46079bf3ed6152db7f88
+prompts: null
+run_id: 4cfdec74bed64ad9bdc3152615edb411
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "double", "name": "delai_promis", "required": true}, {"type":
+    "long", "name": "mois_achat", "required": true}, {"type": "long", "name": "jour_semaine",
+    "required": true}, {"type": "long", "name": "heure_achat", "required": true},
+    {"type": "double", "name": "delai_validation_h", "required": true}, {"type": "long",
+    "name": "nb_produits", "required": true}, {"type": "long", "name": "nb_vendeurs",
+    "required": true}, {"type": "double", "name": "prix_total", "required": true},
+    {"type": "double", "name": "frais_port", "required": true}, {"type": "double",
+    "name": "poids_total_g", "required": true}, {"type": "double", "name": "volume_total_cm3",
+    "required": true}, {"type": "double", "name": "nb_photos", "required": true},
+    {"type": "long", "name": "meme_etat", "required": true}, {"type": "double", "name":
+    "nb_mensualites", "required": true}, {"type": "string", "name": "categorie", "required":
+    true}, {"type": "string", "name": "etat_client", "required": true}, {"type": "string",
+    "name": "etat_vendeur", "required": true}, {"type": "string", "name": "type_paiement",
+    "required": true}]'
+  outputs: '[{"type": "double", "required": true}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2026-10-22 08:42:29.367069'
